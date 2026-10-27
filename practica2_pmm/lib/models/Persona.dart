@@ -26,8 +26,6 @@ class Persona {
   String get fullName => '$firstName $lastName';
 
   String get formatBirthDate {
-    var day = dateOfBirth.day.toString().padLeft(2,'0');
-    var month = dateOfBirth.month.toString().padLeft(2, '0');
-    return '$day/$month/${dateOfBirth.year}';
+    return '${dateOfBirth.day}/${dateOfBirth.month}/${dateOfBirth.year}';
   }
 }
