@@ -5,6 +5,7 @@
 import 'package:flutter/material.dart';
 
 import '../widgets/dismissible_list.dart';
+import '../widgets/reorderable_items_list.dart';
 
 class WidgetPage extends StatelessWidget {
   const WidgetPage({super.key});
@@ -19,12 +20,14 @@ class WidgetPage extends StatelessWidget {
           bottom: const TabBar(
             tabs: [
               Tab(icon: Icon(Icons.swipe), text: 'Dismissible'),
+              Tab(icon: Icon(Icons.reorder), text: 'Reorderable'),
             ],
           ),
         ),
         body: const TabBarView(
           children: [
             DismissibleList(),
+            ReorderableItemsList(),
           ],
         ),
       ),
