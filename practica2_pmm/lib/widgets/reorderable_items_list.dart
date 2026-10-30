@@ -22,7 +22,7 @@ class _ReorderableItemsListState extends State<ReorderableItemsList> {
   Widget build(BuildContext context) {
     return ReorderableListView.builder(
       itemCount: _skills.length,
-      onReorder: _reordenar,
+      onReorderItem: _reordenar,
       itemBuilder: (context, index) {
         final skill = _skills[index];
         return ListTile(
