@@ -5,6 +5,7 @@
 import 'package:flutter/material.dart';
 
 import '../models/persona.dart';
+import '../routes/app_routes.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -16,18 +17,18 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   Persona _persona = Persona.defaults();
 
-  Future<void> _editProfile() async {
-    final updated = await Navigator.pushNamed<Persona>(
+    Future<void> _editProfile() async {
+    final result = await Navigator.pushNamed(
       context,
-      '/personal',
+      AppRoutes.personal,
       arguments: _persona,
     );
-    if (!mounted || updated == null) return;
-    setState(() => _persona = updated);
+    if (!mounted || result == null) return;
+    setState(() => _persona = result as Persona);
   }
 
   void _openShowcase() {
-    Navigator.pushNamed(context, '/widgets');
+    Navigator.pushNamed(context, AppRoutes.widget);
   }
 
   @override
