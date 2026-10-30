@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       routes: {
         AppRoutes.home:(context) => HomePage(),
         AppRoutes.personal:(context) => PersonalPage(),
-        AppRoutes.widgets:(context) => WidgetPage()
+        AppRoutes.widget:(context) => WidgetPage()
       },
       initialRoute: AppRoutes.home,
     );

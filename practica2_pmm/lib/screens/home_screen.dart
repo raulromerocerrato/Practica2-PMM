@@ -1,4 +1,10 @@
+// StatefulWidget: esta pantalla guarda la Persona actual en su estado y debe
+// reconstruirse (setState) cuando PersonalScreen devuelve los datos editados,
+// para refrescar la tarjeta de perfil.
+
 import 'package:flutter/material.dart';
+
+import '../models/persona.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -8,32 +14,67 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  Persona _persona = Persona.defaults();
+
+  Future<void> _editProfile() async {
+    final updated = await Navigator.pushNamed<Persona>(
+      context,
+      '/personal',
+      arguments: _persona,
+    );
+    if (!mounted || updated == null) return;
+    setState(() => _persona = updated);
+  }
+
+  void _openShowcase() {
+    Navigator.pushNamed(context, '/widgets');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('DevProfile M3'),
-      ),
-      body: Center(
-        child:Container(
-          color: Colors.amber,
-          child: Column(
-            children: [
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).pushNamed('/personal');
-                }, 
-                child: Text('Personal Page')
+      appBar: AppBar(title: const Text('DevProfile M3')),
+      body: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Card(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  ListTile(
+                    leading: const Icon(Icons.person),
+                    title: const Text('Full name'),
+                    subtitle: Text(_persona.fullName),
+                  ),
+                  ListTile(
+                    leading: const Icon(Icons.email),
+                    title: const Text('Email address'),
+                    subtitle: Text(_persona.emailAddress),
+                  ),
+                  ListTile(
+                    leading: const Icon(Icons.cake),
+                    title: const Text('Date of birth'),
+                    subtitle: Text(_persona.formatBirthDate),
+                  ),
+                ],
               ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).pushNamed('/widgets');
-                }, 
-                child: Text('Widget Page')
-              )
-            ]
-          ),
-        )
+            ),
+            const SizedBox(height: 24),
+            FilledButton.icon(
+              onPressed: _editProfile,
+              icon: const Icon(Icons.edit),
+              label: const Text('Edita Perfil'),
+            ),
+            const SizedBox(height: 12),
+            OutlinedButton.icon(
+              onPressed: _openShowcase,
+              icon: const Icon(Icons.widgets),
+              label: const Text('Explora Widgets'),
+            ),
+          ],
+        ),
       ),
     );
   }
