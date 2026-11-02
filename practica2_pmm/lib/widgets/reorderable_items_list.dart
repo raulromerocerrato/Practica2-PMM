@@ -19,15 +19,20 @@ class _ReorderableItemsListState extends State<ReorderableItemsList> {
   }
 
   @override
+    @override
   Widget build(BuildContext context) {
     return ReorderableListView.builder(
+      buildDefaultDragHandles: false,
       itemCount: _skills.length,
       onReorderItem: _reordenar,
       itemBuilder: (context, index) {
         final skill = _skills[index];
         return ListTile(
           key: ValueKey(skill),
-          leading: const Icon(Icons.drag_handle),
+          leading: ReorderableDragStartListener(
+            index: index,
+            child: const Icon(Icons.drag_handle),
+          ),
           title: Text(skill),
         );
       },
