@@ -1,6 +1,6 @@
 // StatefulWidget: aquesta pantalla necessita estat mutable per gestionar els
 // TextEditingController, la data de naixement triada amb el DatePicker i
-// la validació del formulari. Els controladors s'alliberen en disposa().
+// la validació del formulari. Els controladors s'alliberen en dispose().
 
 import 'package:flutter/material.dart';
 

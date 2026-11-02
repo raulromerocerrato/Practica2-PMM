@@ -1,6 +1,6 @@
-// StatefulWidget: esta pantalla guarda la Persona actual en su estado y debe
-// reconstruirse (setState) cuando PersonalScreen devuelve los datos editados,
-// para refrescar la tarjeta de perfil.
+// StatefulWidget: aquesta pantalla desa la Persona actual al seu estat i ha de
+// reconstruir-se (setState) quan PersonalScreen torna les dades editats,
+// per refrescar la targeta de perfil.
 
 import 'package:flutter/material.dart';
 

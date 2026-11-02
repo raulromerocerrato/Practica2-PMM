@@ -1,6 +1,6 @@
-// StatelessWidget: esta pantalla no guarda datos que cambien. Solo organiza
-// las dos pestañas; el estado de cada lista (borrar y reordenar elementos)
-// vive en sus propios StatefulWidget dentro de widgets/.
+// StatelessWidget: aquesta pantalla no guarda dades que canviïn. Només organitza
+// les dues pestanyes; l'estat de cada llista (esborrar i reordenar elements)
+// viu als seus propis StatefulWidget dins de widgets/.
 
 import 'package:flutter/material.dart';
 
