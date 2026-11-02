@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '../routes/app_routes.dart';
-import '../screens/home_screen.dart';
-import '../screens/personal_screen.dart';
-import '../screens/widget_screen.dart';
+import 'routes/app_routes.dart';
+import 'screens/home_screen.dart';
+import 'screens/personal_screen.dart';
+import 'screens/widget_screen.dart';
 
 void main () {
     runApp(const MyApp());
